@@ -1,12 +1,15 @@
 # Creating a RESTful API using Node.js and ExpressJS
 
-How to build Restful API by using NodeJS and ExpressJS
+Steps on  how to build Restful API by using NodeJS and ExpressJS.
+Show also how to use apicache to cache the data.
 
 [Read the tutorial](URL)
 
 ## Requirements
 
 - Node and npm
+- ExpressJS
+- apicache
 
 ## Connection to Repository via github
 
