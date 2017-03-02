@@ -1,12 +1,13 @@
-# Creating a RESTful API using Node.js, ExpressJS and APICache
+# Creating a RESTful API using MongoDB, Node.js, ExpressJS and APICache
 
-Sample Restful API by using NodeJS and ExpressJS. This include also apicache to see how to use caching for your Restful application.
+Sample Restful API by using MongoDB, NodeJS and ExpressJS. This include also apicache to see how to use caching for your Restful application. The database in this sample was using MongDB via www.mlab.com. You can choose to create your own account on mlab and connect to your own database.
 
 ## Requirements
 
 - Node and npm
 - ExpressJS
 - apicache
+- MongoDB
 
 ## Instructions on how to use this repo
 
