@@ -13,6 +13,10 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 
+//apicache
+var apicache = require('apicache');
+var cache = apicache.middleware;
+
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -52,6 +56,9 @@ router.route('/rests')
         rest.save(function(err) {
             if (err)
                 res.send(err);
+            
+            //clear the cache to refresh and see the changes immediately
+            apicache.clear();
 
             res.json({ message: 'Rest created!' });
         });
@@ -59,7 +66,8 @@ router.route('/rests')
     })
 
     // get all the rests (accessed at GET http://localhost:8080/api/rests)
-    .get(function(req, res) {
+    // cache for 5 minutes
+    .get(cache('5 minutes'),function(req, res) {
         REST.find(function(err, rests) {
             if (err)
                 res.send(err);
@@ -73,6 +81,7 @@ router.route('/rests')
 router.route('/rests/:rest_id')
 
     // get the rest with that id (accessed at GET http://localhost:8080/api/rests/:rest_id)
+    //can choose to apply cache, did not choose in this case to see CRUD changes immediately
     .get(function(req, res) {
         REST.findById(req.params.rest_id, function(err, rest) {
             if (err)
